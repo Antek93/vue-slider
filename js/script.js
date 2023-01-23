@@ -1,7 +1,5 @@
 // Inizio esercizio
 
-
-
 // 1. Creare struttura mancante VUE
 
 const { createApp } = Vue;
@@ -31,16 +29,38 @@ createApp({
                         title: "Marvel's Avengers",
                         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
                     }
-                ]
+                ],
+            activeIndex: 0,
+
         }
     },
     methods: {
-        clicForward: function (element) {
-              element.classList.remove('active')
+        clicForward: function () {
 
+        if (this.activeIndex >= 4) {
 
+            this.activeIndex = 0;
+
+        } else {
+
+            this.activeIndex ++
+
+        }
+
+        },
+
+        clicBackward: function () {
+
+        if (this.activeIndex <= 0) {
+
+            this.activeIndex = 4;
+    
+        } else {
+    
+            this.activeIndex --
+    
+        }
         },
     },
 }).mount('#app');
-
 
