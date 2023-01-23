@@ -35,9 +35,9 @@ createApp({
         }
     },
     methods: {
-        clickActive: function () {
-              
-              classList.remove
+        clicForward: function (element) {
+              element.classList.remove('active')
+
 
         },
     },
