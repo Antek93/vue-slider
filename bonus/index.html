@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue-slider</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="container">
+            <div class="slider-wrapper" tabindex="0">
+                <div class="item">
+
+                    <img :src="slides[activeIndex].image" :alt="slides[activeIndex].title"/>
+                    <div class="text">
+                        <h3> {{ slides[activeIndex].title }} </h3>
+                        <p>
+                            {{ slides[activeIndex].text }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="thumbs">
+
+                    <button v-on:click="clicBackward()"class="prev"></button>
+                    <button v-on:click="clicForward()"class="next"></button>
+                
+
+                    <!--oggetto si riferisce effettivamente a tutti gli oggetti presenti in slides-->
+                    <!--il nome "oggetto" è fittizio, ma si riferisce sempre agli elementi presenti in slides: 5 oggetti-->
+
+                    <!-- nel v-for: oltre all'oggetto si può aggiungere un indice per ogni iterazione-->
+
+                    <div v-for="(oggetto, index) in slides" class="thumb" :class="(activeIndex == index) ? 'active' : ''" @click="activeIndex = index"> <!--slides ha 5 oggetti quindi il v-for creerà 5 div con class="thumb"-->
+                        
+                        <!--oggetto.image si riferice alla proprietà image, presente in ogni oggetto-->
+                        <img v-bind:src="oggetto.image" :alt="oggetto.title"/>
+                    </div>
+
+                    <!-- operatore ternario-->
+
+                    <!-- (CONDIZIONE DA VERIFICARE) ? (COSA SUCCEDE IN CASO TRUE) : (COSA SUCCEDE IN CASO FALSE) -->
+                   <!-- (activeIndex == index) ?                 'active'         : ''; -->
+
+                   <!-- CHE DIVENTA: della riga 38 -->
+
+                   <!-- :class="(activeIndex == index) ? 'active' : '' -->
+                   <!-- SE activeIndex (che incrementa con le frecce) è uguale ad index (indice che viene generato e associato al ciclo for) allora aggiungi classe 'active' altrimenti classe '' (vuota) -->
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+    <script src="js/script.js" ></script>
+</body>
+
+</html>
