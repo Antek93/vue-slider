@@ -2,12 +2,13 @@
 
 // 1. Creare struttura mancante VUE
 
-const { createApp } = Vue;
+const { createApp } = Vue; //sintassi del deconstructuring
 
-createApp({
-    data() {
+createApp({ //Funzione appena importata: serve per inizializzare la mia instanza di Vue
+    data() { //Metodo che restituisce un oggetto
+
         return {
-            slides: [
+            slides: [ // ←  chiave valore + Array di oggetti ↓
                     {
                         image: 'img/01.webp',
                         title: 'Marvel\'s Spiderman Miles Morale',
@@ -34,10 +35,10 @@ createApp({
 
         }
     },
-    methods: {
+    methods: { //Proprietà che utilizza piu metodi
         clicForward: function () {
 
-        if (this.activeIndex >= 4) {
+        if (this.activeIndex >= this.slides.length - 1) {
 
             this.activeIndex = 0;
 
@@ -53,7 +54,7 @@ createApp({
 
         if (this.activeIndex <= 0) {
 
-            this.activeIndex = 4;
+            this.activeIndex = this.slides.length - 1;
     
         } else {
     
@@ -62,5 +63,5 @@ createApp({
         }
         },
     },
-}).mount('#app');
+}).mount('#app'); //Funzione mount
 

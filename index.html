@@ -30,8 +30,13 @@
                     <button v-on:click="clicBackward()"class="prev"></button>
                     <button v-on:click="clicForward()"class="next"></button>
 
-                    <div v-for="oggetto in slides" class="thumb"> <!--ripristinare classe active-->
-                        <img :src="oggetto.image" :alt="oggetto.title"/>
+                    <!--oggetto si riferisce effettivamente a tutti gli oggetti presenti in slides-->
+                    <!--il nome "oggetto" è fittizio, ma si riferisce sempre agli elementi presenti in slides: 4 oggetti-->
+
+                    <div v-for="oggetto in slides" class="thumb"> <!--slides ha 5 oggetti quindi il v-for creerà 5 div con class="thumb"-->
+                        
+                        <!--oggetto.image si riferice alla proprietà image, presente in ogni oggetto-->
+                        <img v-bind:src="oggetto.image" :alt="oggetto.title"/>
                     </div>
                 </div>
             </div>
