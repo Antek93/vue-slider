@@ -31,7 +31,7 @@ createApp({ //Funzione appena importata: serve per inizializzare la mia instanza
                         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
                     }
                 ],
-            activeIndex: 0,
+            activeIndex: 0, // indice settato su zero, perché permette di visualizzare per prima la slide con indice 0
 
         }
     },
